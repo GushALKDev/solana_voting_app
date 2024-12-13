@@ -19,7 +19,7 @@ describe("voting_app", () => {
   const wallet4 = anchor.web3.Keypair.generate(); // Voter 4
   const wallet5 = anchor.web3.Keypair.generate(); // Voter 5
 
-  console.log("Owner Address:", owner.toString());
+  console.log("Owner Address:", owner.publicKey.toString());
   console.log("Player 1 Address:",  wallet1.publicKey.toString());
   console.log("Player 2 Address:",  wallet2.publicKey.toString());
   console.log("Player 3 Address:",  wallet3.publicKey.toString());
@@ -37,10 +37,28 @@ describe("voting_app", () => {
     if (network === "localhost") {
       console.log("Funding players accounts...");
       await provider.connection.requestAirdrop(wallet1.publicKey, 200 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet1.publicKey.toString()} was airdropped with 200 SOL.`);
       await provider.connection.requestAirdrop(wallet2.publicKey, 200 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet2.publicKey.toString()} was airdropped with 200 SOL.`);
       await provider.connection.requestAirdrop(wallet3.publicKey, 200 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet3.publicKey.toString()} was airdropped with 200 SOL.`);
       await provider.connection.requestAirdrop(wallet4.publicKey, 200 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet4.publicKey.toString()} was airdropped with 200 SOL.`);
       await provider.connection.requestAirdrop(wallet5.publicKey, 200 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet5.publicKey.toString()} was airdropped with 200 SOL.`);
+    }
+    if (network === "e") {
+      console.log("Funding players accounts...");
+      await provider.connection.requestAirdrop(wallet1.publicKey, 5 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet1.publicKey.toString()} was airdropped with 200 SOL.`);
+      await provider.connection.requestAirdrop(wallet2.publicKey, 5 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet2.publicKey.toString()} was airdropped with 200 SOL.`);
+      await provider.connection.requestAirdrop(wallet3.publicKey, 5 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet3.publicKey.toString()} was airdropped with 200 SOL.`);
+      await provider.connection.requestAirdrop(wallet4.publicKey, 5 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet4.publicKey.toString()} was airdropped with 200 SOL.`);
+      await provider.connection.requestAirdrop(wallet5.publicKey, 5 * anchor.web3.LAMPORTS_PER_SOL); // Airdrop some SOL
+      console.log(`Solana account ${wallet5.publicKey.toString()} was airdropped with 200 SOL.`);
     }
   });
 

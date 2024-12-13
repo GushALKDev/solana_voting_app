@@ -1,6 +1,6 @@
 use anchor_lang::prelude::*;
 
-declare_id!("3WUFuwrUbnwrUMjgYwgmqLfcPdQ7Dnx1XHkQHzsfXeU7");
+declare_id!("8WxMscTKPfCZo5735pFz3iRWQFQRQ52VnrZ4uDeCsw1f");
 
 const GLOBAL_ACCOUNT_SEED: &[u8] = b"global_account";
 const POLL_SEED: &[u8] = b"poll";
@@ -37,6 +37,11 @@ pub mod voting_app {
           
         // Increment the global poll counter
         global_account.polls_counter += 1;
+
+        // Emit de Poll created event
+        emit!(PollCreated {
+            poll_pda: ctx.accounts.poll_account.key(),
+        });
     
         Ok(())
     }
@@ -141,6 +146,11 @@ pub struct VoterAccount {
 #[account]
 pub struct GlobalAccount {
     pub polls_counter: u64, // Counter for polls
+}
+
+#[event]
+pub struct PollCreated {
+    pub poll_pda: Pubkey,
 }
 
 // Error codes
