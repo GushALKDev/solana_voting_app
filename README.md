@@ -1,9 +1,15 @@
 # Solana Voting App
 
+![Polls List](./img/home.png)
+
 ![Create Poll](./img/create_poll.png)
+
 ![Create Poll Request](./img/create_poll_request.png)
+
 ![Poll View](./img/poll_1.png)
+
 ![Vote Request](./img/vote_request.png)
+
 ![Already Voted](./img/already_voted.png)
 
 This project is a decentralized voting application built on Solana using the Anchor framework. It allows users to create polls, cast votes, and securely store results on-chain. It serves as a comprehensive example for learning about Solana's account management, Program Derived Addresses (PDAs), and complex interactions within Solana programs.
